@@ -1,8 +1,8 @@
 ---
 title: GitHub 블로그를 시작하며
 date: 2026-11-13 20:00:00 +0900
-categories: [Dev, Blog]
-tags: [github-blog, chirpy]
+categories: [Daily]
+tags: []
 ---
 
 ## 블로그 이주
