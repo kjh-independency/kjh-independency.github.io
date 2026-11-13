@@ -1,7 +1,7 @@
 ---
 title: GitHub 블로그를 시작하며
 date: 2026-11-13 20:00:00 +0900
-categories: [Daily]
+categories: [daily]
 tags: []
 ---
 
