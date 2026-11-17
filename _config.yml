@@ -167,6 +167,9 @@ baseurl: ""
 
 kramdown:
   footnote_backlink: "&#8617;&#xfe0e;"
+  # match velog rendering: single newline = line break, keep straight quotes
+  hard_wrap: true
+  smart_quotes: ["apos", "apos", "quot", "quot"]
   syntax_highlighter: rouge
   syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
     css_class: highlight
