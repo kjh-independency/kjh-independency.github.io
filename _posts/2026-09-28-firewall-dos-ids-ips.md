@@ -1,5 +1,5 @@
 ---
-title: "방화벽/서비스 거부 공격/IDS, IPS"
+title: "7. 방화벽/서비스 거부 공격/IDS, IPS"
 date: 2026-09-28 20:34:18 +0900
 categories: [security]
 tags: [security]

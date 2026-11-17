@@ -1,5 +1,5 @@
 ---
-title: "보안관제"
+title: "10. 보안관제"
 date: 2026-10-13 10:26:11 +0900
 categories: [security]
 tags: [security]

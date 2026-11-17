@@ -1,5 +1,5 @@
 ---
-title: "Mail Protocol (SMTP · POP3 · IMAP)"
+title: "5-2. Mail Protocol (SMTP · POP3 · IMAP)"
 date: 2026-09-13 21:29:41 +0900
 categories: [security]
 tags: [network]

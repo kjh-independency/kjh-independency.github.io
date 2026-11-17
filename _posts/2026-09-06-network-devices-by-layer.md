@@ -1,5 +1,5 @@
 ---
-title: "계층별 네트워크 장비"
+title: "4. 계층별 네트워크 장비"
 date: 2026-09-06 16:57:16 +0900
 categories: [security]
 tags: [network]

@@ -1,5 +1,5 @@
 ---
-title: "Telnet / SSH"
+title: "6-1. Telnet / SSH"
 date: 2026-09-22 16:46:12 +0900
 categories: [security]
 tags: [network]

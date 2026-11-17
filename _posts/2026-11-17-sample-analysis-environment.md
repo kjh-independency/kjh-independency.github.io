@@ -1,5 +1,5 @@
 ---
-title: "샘플 분석 환경 구성"
+title: "13-1. 샘플 분석 환경 구성"
 date: 2026-11-17 21:00:00 +0900
 categories: [security]
 tags: [security]

@@ -1,5 +1,5 @@
 ---
-title: "AI Security"
+title: "1. AI Security"
 date: 2026-08-17 23:38:25 +0900
 categories: [security]
 tags: [ai, security]

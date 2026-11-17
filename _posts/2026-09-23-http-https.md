@@ -1,5 +1,5 @@
 ---
-title: "HTTP / HTTPS"
+title: "6-2. HTTP / HTTPS"
 date: 2026-09-23 00:58:38 +0900
 categories: [security]
 tags: [network]
