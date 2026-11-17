@@ -1,7 +1,7 @@
 ---
 title: "4. Scope(서비스의 범위)"
 date: 2026-11-17 22:33:00 +0900
-categories: [aws, aws global infrastructure]
+categories: [aws, 1. aws global infrastructure]
 tags: [aws]
 ---
 
