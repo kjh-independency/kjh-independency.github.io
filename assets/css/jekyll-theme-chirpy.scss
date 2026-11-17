@@ -1,0 +1,29 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/* 주제가 바뀌는 곳에 한 줄 정도 여백 추가 (기본: h2 40px, h3 32px) */
+.content h2 {
+  margin-top: 4.5rem;
+}
+
+.content h3 {
+  margin-top: 3.75rem;
+}
+
+/* 제목 바로 아래 하위 제목은 여백을 겹쳐 쌓지 않음 */
+.content h2 + h3 {
+  margin-top: 2rem;
+}
