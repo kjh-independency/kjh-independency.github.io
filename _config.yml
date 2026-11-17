@@ -11,6 +11,9 @@ lang: en
 # Change to your timezone › https://zones.arilyn.cc
 timezone: Asia/Seoul
 
+# custom: order of top-level categories on the Categories page (_layouts/categories.html)
+category_order: [challenge, security, aws]
+
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
