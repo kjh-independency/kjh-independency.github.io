@@ -2,7 +2,7 @@
 title: "TP/FP/FN이 보안에서는 어떻게 불릴까: 정탐·오탐·미탐 정리"
 date: 2026-10-06 00:11:36 +0900
 categories: [security]
-tags: [network]
+tags: [security]
 ---
 
 ## 1. 머신러닝에서의 TP, TN, FP, FN

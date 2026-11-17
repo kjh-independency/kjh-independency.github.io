@@ -2,7 +2,7 @@
 title: "AI Security"
 date: 2026-08-17 23:38:25 +0900
 categories: [security]
-tags: [ai, network, security]
+tags: [ai, security]
 ---
 
 ## 목차
