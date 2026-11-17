@@ -50,7 +50,8 @@ LLMOps에서 사용하는 모델은 많은 양의 코퍼스(corpus)를 사전학
 
 위와같은 학습 과정에서 Sensitive Information이 들어갈 수 있고 그것들은 별다른 조치없이 평문으로 들어가게 된다면, LLM이 응답 시 개인정보가 포함된 응답을 하는 등 개인정보 유출이 발생하게 될 수 있습니다.
 
-![](/assets/img/posts/ai-security/01.png)
+![민감 정보 학습으로 인한 개인정보 유출](/assets/img/posts/ai-security/01.png)
+_Sensitive Information이 학습되면 LLM이 개인정보가 포함된 응답을 할 수 있음_
 
 특히 **어플리케이션에 내장된 LLM 같은 경우**에 개인정보 관련 문제가 부각될 수 있습니다.
 
@@ -89,7 +90,8 @@ LLMOps에서 사용하는 모델은 많은 양의 코퍼스(corpus)를 사전학
 
 어떤 데이터든 학습 데이터나 context로 주어지면 처리해서 그럴싸한 답변을 생성하게 됩니다.
 
-![](/assets/img/posts/ai-security/02.png)
+![LLM 데이터 입력 경로](/assets/img/posts/ai-security/02.png)
+_학습 데이터·RAG 기반 DB·AGENT 판단 내용이 LLM에 주입되고, LLM은 어떤 데이터든 처리해 답변을 생성_
 
 **오답이나 편향된 데이터가 들어가거나 오래되어 정보로써의 가치가 떨어진 정보가 들어가거나, 악성 지시문이 섞인 문서가 들어가게 된다면, LLM은 잘못된 출력을 하거나 시스템에 문제가 되는 행위를 하게 됩니다.**
 
@@ -100,18 +102,21 @@ LLMOps에서 사용하는 모델은 많은 양의 코퍼스(corpus)를 사전학
 - 데이터 포이즈닝이란 사전 학습, 파인 튜닝 또는 임베딩 데이터가 오염/조작되어 취약점, 백도어 또는 편향이 삽입되는 현상
 (보통은 세 단계로 설명하지만, LLM 애플리케이션까지 확장하면 아까 말씀드린 것처럼 더 다양한 지점이 대상이 됩니다.)
 
-![](/assets/img/posts/ai-security/03.png)
+![데이터 포이즈닝 개념도](/assets/img/posts/ai-security/03.png)
+_사전 학습·파인튜닝·임베딩 데이터 오염 → 취약점·백도어·편향 삽입_
 
 
 데이터 포이즈닝을 Rag를 기반으로 설명
 
-![](/assets/img/posts/ai-security/04.png)
+![RAG 관점의 데이터 포이즈닝](/assets/img/posts/ai-security/04.png)
+_문서 수집 → 임베딩 → 벡터 DB → 검색 각 단계의 오염·노출 위험_
 
 데이터 포이즈닝 관점에서는 문서 수집 시 악성 지시문이 포함된 오염된 문서가 수집되어 데이터 오염이 발생할 수 있습니다. 또한 임베딩 단계에서는 벡터 왜곡, 즉 유사도가 조작된 문서가 삽입되어 TOP-K 이내에 걸리게 될 수 있습니다
 
 <https://arxiv.org/abs/2402.07867?ref=blog.aibox.today>
 
-![](/assets/img/posts/ai-security/05.png)
+![악성 텍스트 P 생성 과정](/assets/img/posts/ai-security/05.png)
+_검색용 조각 S와 생성용 조각 I를 결합해 P = S ⊕ I 완성_
 
 **악성 테스트(P)를 만드는 과정**
 
@@ -129,25 +134,29 @@ LLMOps에서 사용하는 모델은 많은 양의 코퍼스(corpus)를 사전학
 프롬프트를 조작해서 모델이 데이터를 유출하거나, 허가되지 않은 작업을 수행하거나, 미리 설정된 제약 조건을 무시하도록 유도하는 공격 기법
 
 예시)
-![](/assets/img/posts/ai-security/06.png)
+![프롬프트 인젝션 예시](/assets/img/posts/ai-security/06.png)
+_번역 요청 속에 시스템 지시문을 숨겨 시스템 행위를 덮어씀_
 
 ### 2) LLM Jailbreaking(탈옥)
 
 사용자가 인위적으로 프롬프트를 조작하여 AI 모델에 내장된 보안 정책, 윤리적 제약, 콘텐츠 필터링을 우회하고 원래 허용되지 않은 답변을 이끌어내는 공격 기법
 
-* 소셜 엔지니어링: 인간과 에이전트의 상호작용을 악용해 정보 유출/행동 유도
-![](/assets/img/posts/ai-security/07.png)
+- 소셜 엔지니어링: 인간과 에이전트의 상호작용을 악용해 정보 유출/행동 유도
+![소셜 엔지니어링 탈옥 예시](/assets/img/posts/ai-security/07.png)
+_유지보수 모드로 위장해 제한된 정보 추출 유도_
 
 
-* 가드레일 우회: 파운데이션 모델의 안전 필터, 제약을 우회해 금지된 행동을 유도
-![](/assets/img/posts/ai-security/08.png)
+- 가드레일 우회: 파운데이션 모델의 안전 필터, 제약을 우회해 금지된 행동을 유도
+![가드레일 우회 탈옥 예시](/assets/img/posts/ai-security/08.png)
+_DAN(Do Anything Now) 역할 부여로 안전 필터 우회 유도_
 
 
 ### 3) 간접 프롬프트 인젝션
 
 에이전트가 처리하는 외부 데이터(웹페이지, 이메일, 파일 안)에 악성 내용(지시어)을 숨겨 두었다가 해당 텍스트가 모델의 프롬프트로 불러와질 때 의도하지 않은 동작을 유발시키는 공격 기법
 
-![](/assets/img/posts/ai-security/09.png)
+![간접 프롬프트 인젝션 예시](/assets/img/posts/ai-security/09.png)
+_정상 텍스트 안에 숨긴 지시문으로 시스템 행위를 덮어씀_
 
 
 ### 방어 기법
@@ -162,7 +171,8 @@ LLMOps에서 사용하는 모델은 많은 양의 코퍼스(corpus)를 사전학
     - LLM Guard 활용
 
 ## Reference
-* <https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/>
-* <https://www.aladin.co.kr/shop/wproduct.aspx?itemid=384025599&start=pgooglemc&gad_source=1&gad_campaignid=23338826112&gbraid=0aaaaad-p52iyrwej2lvr2wtecpbque8rh&gclid=cj0kcqjw4orubhcjarisaibf3qx0wt06azpxil-dcfl9bsaqpwdieaeq169ih9hy7fkbepiq97fukruaaoy3ealw_wcb>
-* <https://arxiv.org/abs/2402.07867?ref=blog.aibox.today>
-* <https://blog.aibox.today/ai-system-security-llmops/>
+
+- <https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/>
+- <https://www.aladin.co.kr/shop/wproduct.aspx?itemid=384025599&start=pgooglemc&gad_source=1&gad_campaignid=23338826112&gbraid=0aaaaad-p52iyrwej2lvr2wtecpbque8rh&gclid=cj0kcqjw4orubhcjarisaibf3qx0wt06azpxil-dcfl9bsaqpwdieaeq169ih9hy7fkbepiq97fukruaaoy3ealw_wcb>
+- <https://arxiv.org/abs/2402.07867?ref=blog.aibox.today>
+- <https://blog.aibox.today/ai-system-security-llmops/>
