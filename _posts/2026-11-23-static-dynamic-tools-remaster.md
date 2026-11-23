@@ -156,8 +156,9 @@ _notepad.exe Properties의 Image 탭_
 
 **프로세스 DLL, Handle 확인**
 
-- DLL(Dynamic Link Library): 프로그램이 실행 중 필요한 기능을 사용하기 위해 메모리에 로드하는 라이브러리 파일
-- Handle: 프로세스가 파일, 레지스트리 키 등 운영체제 자원에 접근할 때 사용하는 식별값
+> - DLL(Dynamic Link Library): 프로그램이 실행 중 필요한 기능을 사용하기 위해 메모리에 로드하는 라이브러리 파일
+> - Handle: 프로세스가 파일, 레지스트리 키 등 운영체제 자원에 접근할 때 사용하는 식별값
+{: .prompt-info }
 
 DLL
 
@@ -298,7 +299,8 @@ _ICMP 메시지 상세 — Type, Code, Identifier, Sequence Number_
 5. 자동 실행 항목 관리
    1. 자동 실행 항목 비활성화하거나 삭제하는 기능
 
-**실무 핵심**: 악성코드가 Windows 시작 시 자동 실행되도록 설정하여 지속성(Persistence)을 확보했는지 조사할 때 사용
+> **실무 핵심**: 악성코드가 Windows 시작 시 자동 실행되도록 설정하여 지속성(Persistence)을 확보했는지 조사할 때 사용
+{: .prompt-info }
 
 #### 1-4-3. 실습
 
@@ -388,13 +390,14 @@ _copilotapp.exe의 UDP 5353 포트 사용_
 | --- | --- | --- | --- | --- |
 | `copilotapp.exe` | 6512 | UDP | 5353 | Copilot 관련 프로세스의 UDP 포트 사용 |
 
-- 참고: 네트워크 연결 상태
-
-| 상태 | 의미 |
-| --- | --- |
-| `LISTENING` | 외부 연결 요청을 기다리는 상태 |
-| `ESTABLISHED` | 상대방과 TCP 연결이 설정된 상태 |
-| `TIME_WAIT` | 연결 종료 후 일정 시간 대기하는 상태 |
+> **참고: 네트워크 연결 상태**
+>
+> | 상태 | 의미 |
+> | --- | --- |
+> | `LISTENING` | 외부 연결 요청을 기다리는 상태 |
+> | `ESTABLISHED` | 상대방과 TCP 연결이 설정된 상태 |
+> | `TIME_WAIT` | 연결 종료 후 일정 시간 대기하는 상태 |
+{: .prompt-info }
 
 ### 1-6. SmartSniff
 
@@ -403,7 +406,8 @@ _copilotapp.exe의 UDP 5353 포트 사용_
 - SmartSniff는 **네트워크 인터페이스에서 송수신되는 TCP/IP 패킷을 캡쳐하고 통신 내용을 확인**하는 네트워크 분석 도구
 - 악성코드가 외부 서버와 통신하는지, 어떤 데이터를 주고받는지 조사하는 데 활용
 
-**Wireshark와의 차이**: Wireshark는 다양한 프로토콜의 개별 패킷을 상세하게 분석하는 데 강점이 있고, SmartSniff는 클라이언트와 서버 사이의 TCP 통신 내용을 하나의 흐름으로 확인하는 데 강점이 있습니다.
+> **Wireshark와의 차이**: Wireshark는 다양한 프로토콜의 개별 패킷을 상세하게 분석하는 데 강점이 있고, SmartSniff는 클라이언트와 서버 사이의 TCP 통신 내용을 하나의 흐름으로 확인하는 데 강점이 있습니다.
+{: .prompt-info }
 
 #### 1-6-2. 주요 기능
 
@@ -486,9 +490,11 @@ _SmartSniff에 캡처된 루프백 TCP 통신_
 - 또한 통신 데이터는 ASCII 또는 Hex 형태로 확인할 수 있다고 함.
   - 현재 상태에서는 표시되지 않았으며 추후 원인 분석을 해야할 듯 합니다.
 
-- 참고: 개별 패킷에 대한 확인은 SmartSniff보다 Wireshark가 적합함
-  - Wireshark: 개별 패킷의 헤더와 프로토콜 정보를 상세하게 분석하는 데 적합
-  - SmartSniff: 동일한 TCP 통신에 속한 패킷들을 하나의 통신 흐름으로 묶어 송수신 데이터를 확인하는 데 적합
+> **참고: 개별 패킷에 대한 확인은 SmartSniff보다 Wireshark가 적합함**
+>
+> - Wireshark: 개별 패킷의 헤더와 프로토콜 정보를 상세하게 분석하는 데 적합
+> - SmartSniff: 동일한 TCP 통신에 속한 패킷들을 하나의 통신 흐름으로 묶어 송수신 데이터를 확인하는 데 적합
+{: .prompt-info }
 
 ### 1-7. System Explorer
 
@@ -504,7 +510,8 @@ _SmartSniff에 캡처된 루프백 TCP 통신_
 3. 네트워크 연결 확인 - 실행 중인 프로세스의 TCP/UDP 연결 정보와 통신 대상 확인
 4. 시스템 자원 모니터링 - CPU, 메모리 등 시스템 자원 사용 현황 확인
 
-**Process Explorer와의 차이**: 두 도구 모두 프로세스를 분석하지만, System Explorer는 프로세스·네트워크·시스템 성능 등을 통합적으로 확인하는 데 집중합니다.
+> **Process Explorer와의 차이**: 두 도구 모두 프로세스를 분석하지만, System Explorer는 프로세스·네트워크·시스템 성능 등을 통합적으로 확인하는 데 집중합니다.
+{: .prompt-info }
 
 #### 1-7.3 실습
 
